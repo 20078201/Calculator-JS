@@ -1,0 +1,56 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: 24px;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+#calculator {
+    display: grid;
+    grid-template-areas: 
+    'display display display display'
+    'seven eight nine add'
+    'four five six subtract'
+    'one two three multiply'
+    'zero divide clear equal';
+    min-height: 50vh;
+    width: 50vh;
+    padding: 10px;
+    border-radius: 10px;
+    background: #EEf4f9;
+    gap: 10px;
+}
+
+.operation,
+.cal-number {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.display {
+    height: auto;
+    width: auto;
+}
+
+.result {
+    display: flex;
+    justify-content: end;
+    align-items: flex-end;
+    height: 100px;
+    width: 100%;
+}
+
+.btn {
+    height: 100%;
+    width: 100%;
+    
+}
