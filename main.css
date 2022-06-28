@@ -20,10 +20,10 @@
     'seven eight nine add'
     'four five six subtract'
     'one two three multiply'
-    'zero divide clear equal';
-    min-height: 50vh;
+    'zero clear equal divide';
+    min-height: 60vh;
     width: 50vh;
-    padding: 10px;
+    padding: 5px;
     border-radius: 10px;
     background: #EEf4f9;
     gap: 5px;
@@ -35,23 +35,36 @@
     justify-content: center;
     align-items: center;
     text-align: center;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+.cal-number:hover,
+.operation:hover {
+    background: rgba(255, 132, 0, 0.50);
 }
 
 .display {
+    grid-area: display;
     display: flex;
+    flex-direction: column;
+    align-items: flex-end;
     justify-content: end;
-    align-items: center;
     height: 15vh;
     width: 100%;
     font-size: 90px;
     font-weight: 100;
 }
 
-.equalBtn {
+.previous_Value {
+    font-size: 24px;
+    color: rgba(0, 0, 0, 0.25);
+}
+
+div.ACBtn {
     background: red;
 }
 
-.btn {
-    height: 100%;
-    width: 100%;
+.operation {
+    background: orange;
 }
