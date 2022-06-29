@@ -1,5 +1,6 @@
 let displayValue = ''
-let mathOperation = ''
+let firstOperation = ''
+let secondOperation = ''
 let previousOperand = ''
 let nextOperand = ''  
 
@@ -21,6 +22,7 @@ let operation = {
 
 // grab the parent element
 const calNumber = document.querySelector("#calculator")
+
 // create node list from parent element
 const calNumbers = calNumber.querySelectorAll('.cal-number')
 const operations = calNumber.querySelectorAll('.operation')
@@ -33,24 +35,42 @@ for (let i = 0; i < calOperations.length; i++) {
     operations[i].addEventListener('click', () => {
         if (operations[i].textContent === '+' || operations[i].textContent === '-' ||
         operations[i].textContent === 'x' || operations[i].textContent === '/') {
-                 
-            } else if (operations[i].textContent === '=') {
-               
-            } else if (operations[i].textContent === 'C') {
-                displayValue = ""
-                previousOperand = ""
-                nextOperand = ""
-                mathOperation = ""
+            if (previousOperand !== '') {
+                // Set next operand
+                nextOperand = displayValue
+                // evaluate 
+                displayValue = operate(parseInt(previousOperand), parseInt(nextOperand), firstOperation)
+                // reset operands
+                previousOperand = ''
+                nextOperand = ''
+                // display
                 update()
-            }
+                return
+            } 
+            firstOperation = operations[i].textContent
+            previousOperand = displayValue // Store display value
+            displayValue = "" // set display value to null
+            update()
+        } // Evaluate previous and next operand
+        else if (operations[i].textContent === "=") {
+            nextOperand = displayValue
+            displayValue = operate(parseInt(previousOperand), parseInt(nextOperand), firstOperation)
+            update()
+            nextOperand = ""
+        } else if (operations[i].textContent === 'C'){
+            displayValue = ''
+            firstOperation = ''
+            previousOperand = ''
+            nextOperand = '' 
+            update() 
+        }
     })
 }
 
 for (let i = 0; i < calNames.length; i++) {
     calNumbers[i].setAttribute('style', `grid-area: ${calNames[i]}`)
-    calNumbers[i].addEventListener('click', operandInput)
+    calNumbers[i].addEventListener('click', pressNumber)
 }
-
 // Math Operations
 function add(num1, num2) {
     return num1 + num2
@@ -82,29 +102,13 @@ function update() {
     const container = document.querySelector('div.container')
     const calculatorContainer = container.querySelector('.calculator')
     const display = calculatorContainer.querySelector('#display')
-    const previousDisplay = display.querySelector('.previous_Value')
     const currentDisplay = display.querySelector('.current_Value')
+
+    currentDisplay.textContent = displayValue
     
-    if (currentDisplay.textContent === "") {
-        previousDisplay.textContent = displayValue
-        currentDisplay.textContent = displayValue  
-    } else if (currentDisplay.textContent !== null) {
-        currentDisplay.textContent = displayValue
-        previousDisplay.textContent = previousOperand
-    }
-       
 }
 // For inputting number
-function operandInput(e) {
-    if (previousOperand === "") {
-        previousOperand = e.target.textContent
-        displayValue = previousOperand
-        update()
-    } else if (previousOperand !== "") {
-        previousOperand = nextOperand
-        nextOperand = e.target.textContent
-        displayValue = nextOperand
-        update()
-    }
+function pressNumber(e) {
+    displayValue = displayValue.concat(e.target.textContent)
+    update()
 }
-// For math operation

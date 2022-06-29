@@ -24,8 +24,10 @@
     min-height: 60vh;
     width: 50vh;
     padding: 5px;
+    border: 3px solid black;
     border-radius: 10px;
     background: #EEf4f9;
+    box-shadow: 5px 10px rgba(255, 132, 0, 0.50);
     gap: 5px;
 }
 
@@ -54,6 +56,9 @@
     width: 100%;
     font-size: 90px;
     font-weight: 100;
+    background: darkcyan;
+    border: 1px solid black;
+    border-radius: 10px;
 }
 
 .previous_Value {
