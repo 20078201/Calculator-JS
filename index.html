@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <link rel="stylesheet" href="main.css">
-    <script src="main.js" defer></script>
+
+    <script type="module" src="index.js" defer></script>
     
     <title>Calculator</title>
 </head>
@@ -14,25 +15,27 @@
     <div class="container">
         <div class="calculator" id="calculator">
             <div id="display" class="display">
-                <p id="pre_Value" class="previous_Value"></p>
-                <p class="current_Value"></p>
+                <div data-previous-operand class="previous_operand"></div>
+                <div data-current-operand class="current_operand"></div>
             </div>
-            <div class="cal-number btn">0</div>
-            <div class="cal-number btn">1</div>
-            <div class="cal-number btn">2</div>
-            <div class="cal-number btn">3</div>
-            <div class="cal-number btn">4</div>
-            <div class="cal-number btn">5</div>
-            <div class="cal-number btn">6</div>
-            <div class="cal-number btn">7</div>
-            <div class="cal-number btn">8</div>
-            <div class="cal-number btn">9</div>
-            <div class="add operation btn">+</div>
-            <div class="subtract operation btn">-</div>
-            <div class="multiply operation btn">x</div>
-            <div class="divide operation btn">/</div>
-            <div class="equal operation btn">=</div>
-            <div class="clear operation ACBtn">C</div>
+            <div data-number class="btn zero">0</div>
+            <div data-number class="btn one">1</div>
+            <div data-number class="btn two">2</div>
+            <div data-number class="btn three">3</div>
+            <div data-number class="btn four">4</div>
+            <div data-number class="btn five">5</div>
+            <div data-number class="btn six">6</div>
+            <div data-number class="btn seven">7</div>
+            <div data-number class="btn eight">8</div>
+            <div data-number class="btn nine">9</div>
+            <div data-number class="btn point">.</div>
+            <div data-operation class="add btn">+</div>
+            <div data-operation class="subtract btn">-</div>
+            <div data-operation class="multiply btn">x</div>
+            <div data-operation class="divide btn">/</div>
+            <div data-equals class="equal btn">=</div>
+            <div data-clear class="clear btn">C</div>
+            <div data-delete class="delete btn">⬅</div>
         </div>
     </div>
 

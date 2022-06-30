@@ -17,10 +17,11 @@
     display: grid;
     grid-template-areas: 
     'display display display display'
-    'seven eight nine add'
-    'four five six subtract'
-    'one two three multiply'
-    'zero clear equal divide';
+    'clear clear del del'
+    'seven eight nine adding'
+    'four five six subtracting'
+    'one two three multiplying'
+    'point zero_lo equal divide';
     min-height: 60vh;
     width: 50vh;
     padding: 5px;
@@ -31,8 +32,27 @@
     gap: 5px;
 }
 
-.operation,
-.cal-number {
+.zero{grid-area: zero_lo;}
+.one {grid-area: one;}
+.two {grid-area: two;}
+.three {grid-area: three;}
+.four {grid-area: four;}
+.five {grid-area: five;}
+.six {grid-area: six;}
+.seven {grid-area: seven;}
+.eight {grid-area: eight;}
+.nine {grid-area: nine;}
+.point {grid-area: point;}
+.add {grid-area: adding;}
+.subtract {grid-area: subtracting;}
+.multiply {grid-area: multiplying;}
+.divide {grid-area: divide;}
+.equal {grid-area: equal;}
+.clear {grid-area: clear;}
+.delete {grid-area: del;}
+
+
+.btn {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -41,8 +61,8 @@
     border-radius: 10px;
 }
 
-.cal-number:hover,
-.operation:hover {
+.btn:hover,
+.btn:hover {
     background: rgba(255, 132, 0, 0.50);
 }
 
@@ -51,8 +71,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    justify-content: end;
-    height: 15vh;
+    justify-content: space-around;
+    padding: 10px;
+    word-wrap: break-word;
+    word-break: break-all;
+    height: 5rem;
     width: 100%;
     font-size: 90px;
     font-weight: 100;
@@ -61,15 +84,17 @@
     border-radius: 10px;
 }
 
-.previous_Value {
-    font-size: 24px;
-    color: rgba(0, 0, 0, 0.25);
+.display .previous_operand {
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 1rem;
 }
 
-div.ACBtn {
+.display .current_operand {
+    color: white;
+    font-size: 2rem;
+}
+
+.clear {
     background: red;
 }
 
-.operation {
-    background: orange;
-}
