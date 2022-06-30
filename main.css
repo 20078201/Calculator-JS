@@ -10,7 +10,18 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
     min-height: 100vh;
+    background-color: aliceblue;
+}
+
+.footer {
+    margin-top: auto;
+    margin-bottom: 10px;
+}
+
+.footer > p {
+    font-size: 16px;
 }
 
 #calculator {
@@ -30,6 +41,7 @@
     background: #EEf4f9;
     box-shadow: 5px 10px rgba(255, 132, 0, 0.50);
     gap: 5px;
+    margin-top: auto;
 }
 
 .zero{grid-area: zero_lo;}
